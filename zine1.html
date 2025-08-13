@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLUE SKINNED LIZARD</title>
+    <link rel="stylesheet" href="styles.css"></link>
+</head>
+<body>
+    <div class="scanlines"></div>
+    
+    <nav class="navbar" id="navbar">
+      <!--<div class="navbar-title glitch" data-text="BLUE SKINNED LIZARD">BLUE SKINNED LIZARD</div>-->
+        <a href="./index.html#about">
+          <img src="./assets/logo.jpeg" style="width:120px;"></img>
+        </a>
+        <div class="navbar-nav">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSekO4s5kBzKbchZX4Yu6XgA4jh-Z1Rs6v7nIy8Aztq0N4J-NA/viewform" class="nav-item">Submit</a>
+            <button class="donate-btn">Donate</button>
+        </div>
+    </nav>
+    
+    <div class="content" id="content">
+        <!--<section class="about" id="blurb">
+            <p>
+              Lorum ipsum blurb asdf asdf asdf asdf asdf asdf asdf asdf
+              Lorum ipsum blurb asdf asdf asdf asdf asdf asdf asdf asdf
+              Lorum ipsum blurb asdf asdf asdf asdf asdf asdf asdf asdf
+              Lorum ipsum blurb asdf asdf asdf asdf asdf asdf asdf asdf
+              Lorum ipsum blurb asdf asdf asdf asdf asdf asdf asdf asdf
+            </p>
+        </section>-->
+        <div class="double-spread">
+          <img src="./assets/zine1/z01p01.jpg" style="width:70%;max-width:500px;" alt="cover of zine 1"></img>
+        </div>
+        <div class="double-spread">
+          <img src="./assets/zine1/z01p02.jpg" alt=""></img>
+          <img src="./assets/zine1/z01p03.jpg" alt=""></img>
+        </div>
+        <div class="double-spread">
+          <img src="./assets/zine1/z01p04.jpg" alt=""></img>
+          <img src="./assets/zine1/z01p05.jpg" alt=""></img>
+        </div>
+        <div class="double-spread horizontal">
+          <img src="./assets/zine1/z01p06.jpg" alt=""></img>
+        </div>
+        <div class="double-spread">
+          <img src="./assets/zine1/z01p08.jpg" alt=""></img>
+          <img src="./assets/zine1/z01p09.jpg" alt=""></img>
+        </div>
+        <div class="double-spread horizontal">
+          <img src="./assets/zine1/z01p10.jpg" alt=""></img>
+        </div>
+        <div class="double-spread">
+          <img src="./assets/zine1/z01p12.jpg" alt=""></img>
+          <img src="./assets/zine1/z01p13.jpg" alt=""></img>
+        </div>
+        <div class="double-spread horizontal">
+          <img src="./assets/zine1/z01p14.jpg" alt=""></img>
+        </div>
+        <div class="double-spread">
+          <img src="./assets/zine1/z01p16.jpg" alt=""></img>
+          <img src="./assets/zine1/z01p17.jpg" alt=""></img>
+        </div>
+        <div class="double-spread">
+          <img src="./assets/zine1/z01p18.jpg" alt=""></img>
+          <img src="./assets/zine1/z01p19.jpg" alt=""></img>
+        </div>
+        <div class="double-spread horizontal">
+          <img src="./assets/zine1/z01p20.jpg" alt=""></img>
+        </div>
+        <div class="double-spread">
+          <img src="./assets/zine1/z01p22.jpg" alt=""></img>
+          <img src="./assets/zine1/z01p23.jpg" alt=""></img>
+        </div>
+        <div class="double-spread">
+          <img src="./assets/zine1/z01p24.jpg" alt=""></img>
+          <img src="./assets/zine1/z01p25.jpg" alt=""></img>
+        </div>
+        <div class="double-spread">
+          <img src="./assets/zine1/z01p26.jpg" alt=""></img>
+        </div>
+    </div>
+    
+    <script>
+        let isScrolled = false;
+        
+        function handleScroll() {
+            const scrollY = window.scrollY;
+            const navbar = document.getElementById('navbar');
+            const content = document.getElementById('content');
+            
+            if (scrollY > 0 && !isScrolled) {
+                isScrolled = true;
+                navbar.classList.add('visible');
+                content.classList.add('with-nav');
+            } else if (scrollY <= 0 && isScrolled) {
+                isScrolled = false;
+                navbar.classList.remove('visible');
+                content.classList.remove('with-nav');
+            }
+        }
+        
+        window.addEventListener('scroll', handleScroll);
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Download button interactions
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Simulate download - in real implementation, this would link to actual files
+                const card = this.closest('.zine-card');
+                const title = card.querySelector('.zine-title').textContent;
+                alert(`Downloading: ${title}\n\n[In a real implementation, this would start the PDF download]`);
+            });
+        });
+        
+        // Donate button
+        document.querySelector('.donate-btn').addEventListener('click', function() {
+            alert('Donate to Blue Lizard Collective\n\n[This would link to your donation platform]');
+        });
+        
+        // Add some random glitch effects
+        setInterval(() => {
+            const glitchElements = document.querySelectorAll('.glitch');
+            glitchElements.forEach(el => {
+                if (Math.random() < 0.1) {
+                    el.style.transform = `translateX(${Math.random() * 4 - 2}px)`;
+                    setTimeout(() => {
+                        el.style.transform = 'translateX(0)';
+                    }, 50);
+                }
+            });
+        }, 2000);
+    </script>
+</body>
+</html>

@@ -277,19 +277,6 @@ body {
     margin-bottom: 1rem;
 }
 
-.download-btn {
-    background: transparent;
-    color: #fff;
-    border: 1px solid #fff;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    font-family: inherit;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: all 0.3s ease;
-    width: 100%;
-}
-
 .download-btn:hover {
     background: #fff;
     color: #000;
@@ -317,4 +304,32 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+/*.content img {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
+}*/
+
+
+.double-spread {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  gap: 10px; /* space between images */
+  margin: 10px auto;
+  justify-content: center; /* centers the single image */
+}
+
+.double-spread img {
+  width: 50%;
+  max-width: 400px;
+}
+
+.horizontal img{
+  width: 100%;
+  max-width: 800px;
+}
+
 
