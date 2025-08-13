@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
 
+:root {
+  --navbar-height: 100px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -96,6 +100,7 @@ body {
 .navbar {
     position: fixed;
     top: 0;
+    height: var(--navbar-height);
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.95);
@@ -184,12 +189,13 @@ body {
 }
 
 .content.with-nav {
-    margin-top: 80px;
+    margin-top: var(--navbar-height);
 }
 
 .about {
     max-width: 800px;
     margin: 0 auto 4rem;
+    margin-top: 5rem;
     text-align: center;
     border: 1px solid #333;
     padding: 2rem;
